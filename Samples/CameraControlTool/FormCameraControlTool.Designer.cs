@@ -38,6 +38,7 @@
             this.buttonTVMode = new System.Windows.Forms.Button();
             this.labelCameraTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonPinOutputSettings = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxResolutionList = new System.Windows.Forms.ComboBox();
             this.panelCamera = new System.Windows.Forms.Panel();
@@ -47,7 +48,6 @@
             this.buttonClearSnapshotFrame = new System.Windows.Forms.Button();
             this.labelResolutionTitle = new System.Windows.Forms.Label();
             this.buttonCameraSettings = new System.Windows.Forms.Button();
-            this.buttonPinOutputSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreenshot)).BeginInit();
             this.tableLayoutPanelForm.SuspendLayout();
             this.panelCamera.SuspendLayout();
@@ -186,6 +186,16 @@
             this.tableLayoutPanelForm.Size = new System.Drawing.Size(905, 562);
             this.tableLayoutPanelForm.TabIndex = 0;
             // 
+            // buttonPinOutputSettings
+            // 
+            this.buttonPinOutputSettings.Location = new System.Drawing.Point(11, 162);
+            this.buttonPinOutputSettings.Name = "buttonPinOutputSettings";
+            this.buttonPinOutputSettings.Size = new System.Drawing.Size(194, 28);
+            this.buttonPinOutputSettings.TabIndex = 9;
+            this.buttonPinOutputSettings.Text = "Camera Output settings";
+            this.buttonPinOutputSettings.UseVisualStyleBackColor = true;
+            this.buttonPinOutputSettings.Click += new System.EventHandler(this.buttonPinOutputSettings_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -220,11 +230,13 @@
             // 
             // cameraControl
             // 
+            this.cameraControl.DirectShowLogFilepath = "";
             this.cameraControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cameraControl.Location = new System.Drawing.Point(0, 0);
             this.cameraControl.Name = "cameraControl";
             this.cameraControl.Size = new System.Drawing.Size(683, 540);
             this.cameraControl.TabIndex = 2;
+            this.cameraControl.Load += new System.EventHandler(this.cameraControl_Load);
             this.cameraControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDoubleClick);
             this.cameraControl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseDown);
             this.cameraControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cameraControl_MouseMove);
@@ -280,16 +292,6 @@
             this.buttonCameraSettings.Text = "Camera settings";
             this.buttonCameraSettings.UseVisualStyleBackColor = true;
             this.buttonCameraSettings.Click += new System.EventHandler(this.buttonCameraSettings_Click);
-            // 
-            // buttonPinOutputSettings
-            // 
-            this.buttonPinOutputSettings.Location = new System.Drawing.Point(11, 162);
-            this.buttonPinOutputSettings.Name = "buttonPinOutputSettings";
-            this.buttonPinOutputSettings.Size = new System.Drawing.Size(194, 28);
-            this.buttonPinOutputSettings.TabIndex = 9;
-            this.buttonPinOutputSettings.Text = "Camera Output settings";
-            this.buttonPinOutputSettings.UseVisualStyleBackColor = true;
-            this.buttonPinOutputSettings.Click += new System.EventHandler(this.buttonPinOutputSettings_Click);
             // 
             // FormCameraControlTool
             // 

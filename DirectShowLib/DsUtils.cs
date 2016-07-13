@@ -1198,7 +1198,7 @@ namespace DirectShowLib
 #if USING_NET11
         public UCOMIMoniker Mon
 #else
-        public IMoniker Mon
+        public IMoniker  Mon
 #endif
         {
             get

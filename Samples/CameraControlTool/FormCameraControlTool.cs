@@ -325,7 +325,7 @@ namespace CameraControlTool
                 Font font = new Font("Tahoma", 16);
                 Brush textColorKeyed = new SolidBrush(Color.Yellow);
 
-                g.DrawString("Sample project for Camera_NET component", font, textColorKeyed, 4, h - 30);
+                g.DrawString("לחצו לקבלת תמונה", font, textColorKeyed, 4, h - 30);
 
             }
 
@@ -617,7 +617,7 @@ namespace CameraControlTool
             else
             {
                 // Set camera
-                SetCamera(_CameraChoice.Devices[ comboBoxCameraList.SelectedIndex ].Mon, null);
+                SetCamera(_CameraChoice.Devices[comboBoxCameraList.SelectedIndex ].Mon, null);
             }
 
             FillResolutionList();
@@ -688,7 +688,7 @@ namespace CameraControlTool
         {
             comboBoxCameraList.Items.Clear();
 
-            _CameraChoice.UpdateDeviceList();
+                _CameraChoice.UpdateDeviceList();
 
             foreach (var camera_device in _CameraChoice.Devices)
             {
@@ -704,6 +704,11 @@ namespace CameraControlTool
             {
                 cameraControl.DisplayPropertyPage_SourcePinOutput(this.Handle);
             }
+        }
+
+        private void cameraControl_Load(object sender, EventArgs e)
+        {
+
         }
 
 
