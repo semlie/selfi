@@ -1,5 +1,6 @@
 ﻿using Camera_NET;
 using CameraService;
+using ConfiguratinService;
 using PrintService;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace SmulikTestCamera
         private CameraChoice _CameraChoice = new CameraChoice();
         private int CounterBase = 3;
         private int counter = 3;
-        
+        private bool SEMAPHORE = false;
+        private int _numberOfCopiesEachSnapshout;
         private System.Windows.Forms.Timer Timer; 
 
         public CameraDisplay()
@@ -35,7 +37,6 @@ namespace SmulikTestCamera
 
         private void buttonTakePicture_Click(object sender, EventArgs e)
         {
-            SetTimer();
 
 
         }
@@ -61,16 +62,18 @@ namespace SmulikTestCamera
 
         private void SetDefualtCameraSetting()
         {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
             var cameraMeneger = new CameraMeneger();
             var cameraDevice = cameraMeneger.GetDevice();
             var resolution = cameraMeneger.GetResolution(cameraDevice);
-            //_CameraChoice.UpdateDeviceList();
-            //if (_CameraChoice == null)
-            //{
-            //    throw new Exception("No camara in this system");
-            //}
-            //cameraControl.SetCamera(_CameraChoice.Devices[0].Mon, null);
-            //ResolutionList resolutions = Camera.GetResolutionList(cameraControl.Moniker);
+            var numberOfCopies = ConfigurationSettingManager.GetConfigurtionSetting("NumberOfImagesPerSnapshout");
+            if (!string.IsNullOrEmpty(numberOfCopies))
+            {
+                _numberOfCopiesEachSnapshout = int.Parse(numberOfCopies);
+            }
+
+
             cameraControl.SetCamera(cameraDevice, resolution);
             cameraControl.MixerEnabled = true;
 
@@ -78,18 +81,18 @@ namespace SmulikTestCamera
 
 
         }
-        private Bitmap ImageTempalte(string background, string[] imagesPath, int maxSizeInPage)
-        {
 
-            return new Bitmap(1, 1);
-        }
         private void SaveImageToPrintFolder(Bitmap img)
         {
-
             var printerManager = new PrintManager();
-            printerManager.SetTempalte(ImageTempalte);
             var folder = printerManager.GetPrinterFolder();
-            img.Save(string.Format(@"{0}\{1}.jpg", folder, Guid.NewGuid().ToString()));
+            var fileName = Guid.NewGuid().ToString();
+            for (int i = 0; i < _numberOfCopiesEachSnapshout; i++)
+            {
+                img.Save(string.Format(@"{0}\{1}{2}.jpg", folder, fileName, i.ToString()));
+                
+            }          
+             //img.Save(string.Format(@"{0}\{1}{2}.jpg", folder, fileName, "2"));
 
             printerManager.ChackFolder();
 
@@ -97,29 +100,7 @@ namespace SmulikTestCamera
         }
 
 
-        private void PrintImage(Bitmap img)
-        {
-            SaveImageToPrintFolder(img);
-
-           //  Bitmap b = new Bitmap(img,640,480);
-           // using (var g = Graphics.FromImage(b))
-           // {
-           //     g.DrawString("Hello", this.Font, Brushes.Black, new PointF(0, 0));
-           // }
-           //
-           // PrintDocument pd = new PrintDocument();
-           // pd.PrintPage += (object printSender, PrintPageEventArgs printE) =>
-           // {
-           //     printE.Graphics.DrawImageUnscaled(b, new Point(0, 0));
-           // };
-           //
-           // PrintDialog dialog = new PrintDialog();
-           // dialog.ShowDialog();
-           // pd.PrinterSettings = dialog.PrinterSettings;
-           // 
-           // pd.Print();
-        }
-
+      
         private void CameraDisplay_FormClosed(object sender, FormClosedEventArgs e)
         {
             cameraControl.CloseCamera();
@@ -141,35 +122,32 @@ namespace SmulikTestCamera
 
             if (counter == 0)
             {
+                Timer.Stop();
                 Debug.Write("take picher");
-                button1.Visible = false;
-                button1.BackgroundImage = SmulikTestCamera.Properties.Resources._31;
+
                 cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources.flash);
 
                 var bitmap = TakeSnapshout();
                 cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, new Bitmap(1, 1));
 
-                PrintImage(bitmap);
-                Timer.Stop();
-
+                SaveImageToPrintFolder(bitmap);
+                
+                SEMAPHORE = false;
 
             }
             switch (counter)
             {
 
                 case 1:
-            button1.BackgroundImage = SmulikTestCamera.Properties.Resources._11;
             cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._11);
 
 
                     break;
                 case 2:
-            button1.BackgroundImage = SmulikTestCamera.Properties.Resources._21;
             cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._21);
                     break;
                 case 3:
 
-            button1.BackgroundImage = SmulikTestCamera.Properties.Resources._31;
             cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._31);
 
                     break;
@@ -182,87 +160,17 @@ namespace SmulikTestCamera
 
         }
 
-        private void buttonVideoPlip_Click(object sender, EventArgs e)
-        {
-            var length = 210;
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            // the code that you want to measure comes here
-            
-            if (!cameraControl.CameraCreated)
-                return;
-            for (int i = 0; i < length; i++)
-            {
-
-                Bitmap bitmap = null;
-                try
-                {
-                    bitmap = cameraControl.SnapshotSourceImage();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, @"Error while getting a snapshot");
-                }
-
-                if (bitmap == null)
-                    return;
-
-                SaveImage(bitmap,i); 
-            }
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;  
-            Debug.WriteLine(elapsedMs);
-        }
-
-        private void SaveImage(Bitmap bitmap,int n)
-        {
-            var dirPath = @"test";
-            if (!Directory.Exists(dirPath))
-            {
-                Directory.CreateDirectory(dirPath);
-                    
-            }
-            bitmap.Save(string.Format(@"{0}/{1}.jpg", dirPath, n.ToString()));
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            buttonTakePicture_Click(sender, e);
-        }
-
-        private void cameraControl_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            buttonTakePicture_Click(sender, e);
-
-        }
-
-        private void cameraControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            buttonTakePicture_Click(sender, e);
-
-        }
 
         private void cameraControl_MouseDown(object sender, MouseEventArgs e)
         {
-            buttonTakePicture_Click(sender, e);
+            if (!SEMAPHORE)
+            {
+                SEMAPHORE = true;
+                SetTimer();
 
-        }
-        private void TestPrinterEngine()
-        {
-            var path  = @"I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\vintage_flower_stationery_2.jpg";
-            var img = Bitmap.FromFile(path);
-            var framePath = @"I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\frameBackground.png";
-            var images = Directory.GetFiles(@"I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\printer\temp").Select(x => Bitmap.FromFile(x)).ToArray();
-            var engine = new PrinterEngine();
-            var frame = Bitmap.FromFile(framePath);
-            var finel = engine.CreateImagesWithBackgroundOnFullPAge(img,images,2,4,frame);
-            finel.Save("testmarging.jpg");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            TestPrinterEngine();
-        }
 
         private Bitmap GenerateColorKeyBitmap(bool useAntiAlias,Image img)
         {

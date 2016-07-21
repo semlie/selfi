@@ -26,6 +26,7 @@ namespace CameraService
                 throw new Exception("No camara in this system");
             }
 
+
         }
         public Resolution GetResolution(IMoniker moniker)
         {

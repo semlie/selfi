@@ -1,6 +1,7 @@
 ﻿using ImageService;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PrintService
 {
-    public class PrinterEngine :PrintManager
+    public class PrinterEngine 
     {
         public ImageServiceManager ImageServices { get; set; }
         public PrinterEngine()
@@ -19,7 +20,10 @@ namespace PrintService
             
         }
         private int _borderSize = 45;
-
+        public void SetBorderSize(int pixel)
+        {
+            _borderSize = pixel;
+        }
 
 
 
@@ -43,18 +47,18 @@ namespace PrintService
                 var newFrameSize = Size.Round(ImageServices.FitImageDimationsToSize(frame, size));
                 var newFrame = ResizeImage(frame, newFrameSize.Width, newFrameSize.Height);
 
-                var imagesFitFrame = images.Select(img => ImageServices.FitImageToFrame(newFrame, img,_borderSize));
+                var imagesFitFrame = images.Select(img => ImageServices.FitImageToFrame(newFrame,img,_borderSize));
                 var imagesWithFrame = imagesFitFrame.Select(img => ImageServices.AddFrameToImage(newFrame, img)).ToArray();
 
 
-                for (int i = 0; i < numberInHeight; i++)
+                for (int i = 0,k=0; i < numberInHeight; i++)
                 {
                     for (int j = 0; j < numberInWidth; j++)
                     {
                         if (imagesWithFrame.Count()>i+j)
                         {
-                            buildFullPageOfImages(background, imagesWithFrame[i + j], j, i, intSize);
-
+                            buildFullPageOfImages(background, imagesWithFrame[k], j, i, intSize);
+                            k++;
                         }
                     }
                 }

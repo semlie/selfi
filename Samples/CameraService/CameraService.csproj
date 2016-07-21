@@ -51,9 +51,9 @@
       <Project>{ce009bfa-5ef6-4153-b2a1-2fa79698a9ae}</Project>
       <Name>DirectShowLib-2010</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ConfiguratinService\ConfiguratinService.csproj">
+    <ProjectReference Include="..\ConfiguratinService\ConfigurationService.csproj">
       <Project>{a67042aa-f2f5-4e21-a90e-25d8958bfbdb}</Project>
-      <Name>ConfiguratinService</Name>
+      <Name>ConfigurationService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

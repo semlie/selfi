@@ -92,6 +92,10 @@
       <Project>{68954aeb-1880-4747-b308-dd7e1d598999}</Project>
       <Name>CameraService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ConfiguratinService\ConfigurationService.csproj">
+      <Project>{a67042aa-f2f5-4e21-a90e-25d8958bfbdb}</Project>
+      <Name>ConfigurationService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ImageService\ImageService.csproj">
       <Project>{7b8929f9-6787-40cc-9523-4626c607a18c}</Project>
       <Name>ImageService</Name>
