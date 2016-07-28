@@ -15,7 +15,7 @@ namespace ImageService
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
-            var destImage = new Bitmap(width, height);
+            var destImage = new Bitmap(width, height,PixelFormat.Format64bppPArgb);
 
             destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
@@ -29,6 +29,7 @@ namespace ImageService
 
                 using (var wrapMode = new ImageAttributes())
                 {
+                    
                     wrapMode.SetWrapMode(WrapMode.TileFlipXY);
                     graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
                 }
@@ -66,7 +67,8 @@ namespace ImageService
         {
             if ((frame.Width - (img.Width + borderSize)) < 0 || (frame.Height - (img.Height + borderSize)) < 0)
             {
-                img = ResizeImage(img, frame.Width - borderSize, frame.Height - borderSize);
+                var size =Size.Round( FitImagesDimationsSaveAspectRatio(frame, img));
+                img = ResizeImage(img, size.Width - borderSize, size.Height - borderSize);
             }
             return (Bitmap)img;
         }
@@ -81,6 +83,27 @@ namespace ImageService
             return new Bitmap(frame);
         }
 
+        public SizeF FitImagesDimationsSaveAspectRatio(Image sourceImage, Image destImage)
+        {
+            float srcProportion = sourceImage.Height*1.0f / sourceImage.Width;
+            float destProportion = destImage.Height*1.0f / destImage.Width;
+            if (srcProportion<destProportion)
+            {
+                return MultipaleSize(destImage.Size, sourceImage.Height * 1.0f / destImage.Height);
+            }
+            else
+            {
+                return MultipaleSize(destImage.Size, sourceImage.Width * 1.0f / destImage.Width);
+
+            }
+        }
+
+        private SizeF MultipaleSize(Size size, float multi)
+        {
+            var width = size.Width * multi;
+            var height = size.Height * multi;
+            return new SizeF(width, height);
+        }
 
         public SizeF FitImageDimationsToSize(Image sourceImage, SizeF maxSizeAvilable)
         {

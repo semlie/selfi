@@ -28,10 +28,5 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
-	<ItemGroup>
-		<ProjectReference Include="..\SmulikTestCamera\SmulikTestCamera.csproj">
-			<Name>SmulikTestCamera</Name>
-			<Project>{C52B9795-0E12-4BC2-8FEB-25EFA1C1B6DE}</Project>
-		</ProjectReference>
-	</ItemGroup>
+	<ItemGroup/>
 </Project>

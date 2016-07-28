@@ -27,6 +27,7 @@ namespace SmulikTestCamera
         private int counter = 3;
         private bool SEMAPHORE = false;
         private int _numberOfCopiesEachSnapshout;
+        private int _sidePosition =0;
         private System.Windows.Forms.Timer Timer; 
 
         public CameraDisplay()
@@ -68,9 +69,14 @@ namespace SmulikTestCamera
             var cameraDevice = cameraMeneger.GetDevice();
             var resolution = cameraMeneger.GetResolution(cameraDevice);
             var numberOfCopies = ConfigurationSettingManager.GetConfigurtionSetting("NumberOfImagesPerSnapshout");
+            var sidePosition = ConfigurationSettingManager.GetConfigurtionSetting("SidePosition");
             if (!string.IsNullOrEmpty(numberOfCopies))
             {
                 _numberOfCopiesEachSnapshout = int.Parse(numberOfCopies);
+            }
+            if (!string.IsNullOrEmpty(sidePosition))
+            {
+                _sidePosition = int.Parse(sidePosition);
             }
 
 
@@ -139,17 +145,38 @@ namespace SmulikTestCamera
             {
 
                 case 1:
-            cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._11);
+                    if (0==_sidePosition)
+                    {
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._11);
+                        
+                    }
+                    if (1 == _sidePosition)
+                    {
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._1L);
 
-
+                    }
                     break;
                 case 2:
-            cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._21);
+                    if (0 == _sidePosition)
+                    {
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._21);
+                    }
+                    if (1 == _sidePosition)
+                    {
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._2L);
+                    }
                     break;
                 case 3:
+                    if (0 == _sidePosition)
+                    {
 
-            cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._31);
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._31);
+                    }
+                    if (1 == _sidePosition)
+                    {
 
+                        cameraControl.OverlayBitmap = GenerateColorKeyBitmap(false, SmulikTestCamera.Properties.Resources._3L);
+                    }
                     break;
             }
             counter--;

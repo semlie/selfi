@@ -340,8 +340,14 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>SmulikTestCamera.Localized_resources</td><td>{08A0264F-A35F-467B-B7C4-1C669AFF09D6}</td><td>INSTALLDIR</td><td>2</td><td/><td>smuliktestcamera.localized_r</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>SmulikTestCamera.Primary_output</td><td>{1D3E15E7-E1B3-4686-93DA-82FD6EE3F440}</td><td>INSTALLDIR</td><td>2</td><td/><td>smuliktestcamera.primary_out</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>CameraService.dll</td><td>{79E9DC68-E4D3-4E90-898A-681AD93F82ED}</td><td>INSTALLDIR</td><td>2</td><td/><td>cameraservice.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Camera_NET.dll</td><td>{3F73E32C-1C22-4858-B0BC-0E248B40B91B}</td><td>INSTALLDIR</td><td>2</td><td/><td>camera_net.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ConfiguratinService.dll</td><td>{EAC897EB-A5E0-445D-A96B-2F9FBDACF11D}</td><td>INSTALLDIR</td><td>2</td><td/><td>configuratinservice.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>DirectShowLib_2010.dll</td><td>{46774A46-A170-4ACB-8CC7-364617C17731}</td><td>INSTALLDIR</td><td>2</td><td/><td>directshowlib_2010.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td>{5E18801F-7E39-4A73-BA07-A9F931FBDDB0}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ImageService.dll</td><td>{1AB68431-B981-41ED-99B3-21AF198357E3}</td><td>INSTALLDIR</td><td>2</td><td/><td>imageservice.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>PrintService.dll</td><td>{A560FA52-41A3-4B8D-A6EA-622DE8E2D403}</td><td>INSTALLDIR</td><td>2</td><td/><td>printservice.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SmulikTestCamera.exe</td><td>{7B681C71-6A23-4409-9321-F399976971ED}</td><td>INSTALLDIR</td><td>2</td><td/><td>smuliktestcamera.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1050,8 +1056,14 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>INSTALLDIR</td><td>SmulikTestCamera.Localized_resources</td></row>
-		<row><td>INSTALLDIR</td><td>SmulikTestCamera.Primary_output</td></row>
+		<row><td>INSTALLDIR</td><td>CameraService.dll</td></row>
+		<row><td>INSTALLDIR</td><td>Camera_NET.dll</td></row>
+		<row><td>INSTALLDIR</td><td>ConfiguratinService.dll</td></row>
+		<row><td>INSTALLDIR</td><td>DirectShowLib_2010.dll</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>INSTALLDIR</td><td>ImageService.dll</td></row>
+		<row><td>INSTALLDIR</td><td>PrintService.dll</td></row>
+		<row><td>INSTALLDIR</td><td>SmulikTestCamera.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1864,8 +1876,14 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>SmulikTestCamera.Localized_resources</td></row>
-		<row><td>AlwaysInstall</td><td>SmulikTestCamera.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>CameraService.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Camera_NET.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ConfiguratinService.dll</td></row>
+		<row><td>AlwaysInstall</td><td>DirectShowLib_2010.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>AlwaysInstall</td><td>ImageService.dll</td></row>
+		<row><td>AlwaysInstall</td><td>PrintService.dll</td></row>
+		<row><td>AlwaysInstall</td><td>SmulikTestCamera.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1880,8 +1898,15 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>smuliktestcamera.localized_r</td><td>SmulikTestCamera.Localized_resources</td><td>SmulikTestCamera.Localized resources</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;SmulikTestCamera&gt;|LocalizedResourceDlls</td><td>3</td><td/></row>
-		<row><td>smuliktestcamera.primary_out</td><td>SmulikTestCamera.Primary_output</td><td>SmulikTestCamera.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;SmulikTestCamera&gt;|Built</td><td>3</td><td/></row>
+		<row><td>camera_net.dll</td><td>Camera_NET.dll</td><td>CAMERA~1.DLL|Camera_NET.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\Camera_NET.dll</td><td>1</td><td/></row>
+		<row><td>cameraservice.dll</td><td>CameraService.dll</td><td>CAMERA~1.DLL|CameraService.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\CameraService.dll</td><td>1</td><td/></row>
+		<row><td>configuratinservice.dll</td><td>ConfiguratinService.dll</td><td>CONFIG~1.DLL|ConfiguratinService.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\ConfiguratinService.dll</td><td>1</td><td/></row>
+		<row><td>directshowlib_2010.dll</td><td>DirectShowLib_2010.dll</td><td>DIRECT~1.DLL|DirectShowLib-2010.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\DirectShowLib-2010.dll</td><td>1</td><td/></row>
+		<row><td>framebackground.png</td><td>ISX_DEFAULTCOMPONENT</td><td>FRAMEB~1.PNG|frameBackground.png</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\frameBackground.png</td><td>1</td><td/></row>
+		<row><td>imageservice.dll</td><td>ImageService.dll</td><td>IMAGES~1.DLL|ImageService.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\ImageService.dll</td><td>1</td><td/></row>
+		<row><td>printservice.dll</td><td>PrintService.dll</td><td>PRINTS~1.DLL|PrintService.dll</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\PrintService.dll</td><td>1</td><td/></row>
+		<row><td>smuliktestcamera.exe</td><td>SmulikTestCamera.exe</td><td>SMULIK~1.EXE|SmulikTestCamera.exe</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\SmulikTestCamera.exe</td><td>1</td><td/></row>
+		<row><td>smuliktestcamera.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>SMULIK~1.CON|SmulikTestCamera.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>I:\data\test\GitHubSelffy\Camera_Net\Samples\SmulikTestCamera\bin\Debug\SmulikTestCamera.exe.config</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2023,8 +2048,14 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>SmulikTestCamera.Localized_resources</td><td/><td/><td>_347B4BBC_0501_452B_8FAE_F1471AC3240C_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>SmulikTestCamera.Primary_output</td><td/><td/><td>_606D8FA2_5C52_4DE0_9997_CD0E9A34E14E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>CameraService.dll</td><td/><td/><td>_5EA06BA1_C1A8_495C_A310_3A4492732A70_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Camera_NET.dll</td><td/><td/><td>_44B56382_D24F_423D_BDB5_EEF6046BD6ED_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ConfiguratinService.dll</td><td/><td/><td>_AEAEAC9B_871F_4D4A_90E7_D8E700219712_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>DirectShowLib_2010.dll</td><td/><td/><td>_318B35A2_1CD6_4277_AF77_F92D3143A483_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_290F641B_9194_4AB2_A873_F57442068F45_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ImageService.dll</td><td/><td/><td>_4C02A2B1_BA59_43A3_A436_C527D0F4AACA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>PrintService.dll</td><td/><td/><td>_B154F4C8_8948_43D4_B07A_4383D152E7D2_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SmulikTestCamera.exe</td><td/><td/><td>_AB345175_BD1F_4BAA_B19F_20E4BAED3F95_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3427,6 +3458,7 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>-1415267177</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>-1415267177</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-1415277225</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch SmulikTestCamera.exe</td><td>0</td><td/><td>-1146821194</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-1415267177</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-1415267177</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-1415267177</td></row>
@@ -3832,6 +3864,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>SmulikTestCamera.e_B6AB1D12B56F4F099B70FD5F0061E1E5.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3964,7 +3997,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{554DA8EC-525D-499C-860E-AF875F77381F}</td></row>
 		<row><td>ISUSSignature</td><td>{2A9B6DD2-2550-4D83-84D7-B7B57DAE99AA}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewUI</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewUI,viewRelease</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4415,9 +4448,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>FileKey1</td><td>SmulikTestCamera.Primary_output</td><td/><td>shmulik</td><td>2</td></row>
-		<row><td>FileKey2</td><td>SmulikTestCamera.Primary_output</td><td/><td>selfym_1_selfymirror</td><td>2</td></row>
-		<row><td>_Built</td><td>SmulikTestCamera.Primary_output</td><td/><td>selfym_1_selfymirror</td><td>2</td></row>
+		<row><td>SmulikTestCamera.exe</td><td>SmulikTestCamera.exe</td><td/><td>selfym_1_selfymirror</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4503,7 +4534,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>selfym_1_selfymirror</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>SmulikTestCamera.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>SmulikTestCamera.exe</td><td>selfym_1_selfymirror</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>SmulikTestCamera.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>SmulikTestCamera.e_B6AB1D12B56F4F099B70FD5F0061E1E5.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
